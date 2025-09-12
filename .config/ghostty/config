@@ -5,6 +5,7 @@ command = /bin/zsh
 # Configs
 
 confirm-close-surface = false
+resize-overlay = never
 
 # Font
 
