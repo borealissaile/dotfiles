@@ -3,77 +3,77 @@
 	name = borealissaile
 
 [gpg]
-    program = /sbin/gpg
+	program = /sbin/gpg
 
 [core]
-    editor = code --wait
-    autocrlf = input
+	editor = code --wait
+	autocrlf = input
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 [url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
-    insteadOf = gh:
+	insteadOf = https://github.com/
+	insteadOf = gh:
 
 [commit]
-    gpgsign = false
+	gpgsign = false
 
 [push]
-    autoSetupRemote = true
-    default = current
-    followTags = true
+	autoSetupRemote = true
+	default = current
+	followTags = true
 
 [pull]
-    default = current
-    rebase = true
+	default = current
+	rebase = true
 
 [rebase]
-    autoStash = true
-    missingCommitsCheck = warn
+	autoStash = true
+	missingCommitsCheck = warn
 
 [diff]
-    context = 3
-    renames = copies
-    interHunkContext = 10
+	context = 3
+	renames = copies
+	interHunkContext = 10
 
 [pager]
-    diff = diff-so-fancy | less --tabs=4 -RFX
+	diff = diff-so-fancy | less --tabs=4 -RFX
 
 [diff-so-fancy]
-    markEmptyLine = false
+	markEmptyLine = false
 
 [interactive]
-    diffFilter = diff-so-fancy --patch
-    singlekey = true
+	diffFilter = diff-so-fancy --patch
+	singlekey = true
 
 [log]
-    abbrevCommit = false
-    graphColors = red,yellow,cyan,magenta,green,red
+	abbrevCommit = false
+	graphColors = red,yellow,cyan,magenta,green,red
 
 [branch]
-    sort = -committerdate
+	sort = -committerdate
 
 [tag]
-    sort = -taggerdate
+	sort = -taggerdate
 
 [color "diff"]
-    meta = yellow bold
-    frag = cyan
-    context = white
-    whitespace = yellow reverse
-    old = red reverse
-    new = green reverse
+	meta = yellow bold
+	frag = cyan
+	context = white
+	whitespace = yellow reverse
+	old = red reverse
+	new = green reverse
 
 [color "decorate"]
-    HEAD = red
-    branch = blue
-    tag = yellow
-    remoteBranch = magenta
+	HEAD = red
+	branch = blue
+	tag = yellow
+	remoteBranch = magenta
 
 [color "branch"]
-    current = green
-    local = default
-    remote = red
-    upstream = green
-    plain = blue
+	current = green
+	local = default
+	remote = red
+	upstream = green
+	plain = blue
