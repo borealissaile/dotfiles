@@ -1,0 +1,51 @@
+add_newline = false
+
+[username]
+format = "[$user](red) on "
+show_always = true
+
+[directory]
+style = "red"
+format = "[$path]($style)"
+truncate_to_repo = false
+
+[git_branch]
+style = "white"
+format = " $branch"
+
+[git_status]
+modified = "*"
+deleted = "*"
+renamed = "*"
+ahead = "⇡"
+behind = "⇣"
+untracked = ""
+format = "[$staged](yellow)[$modified](yellow)[$deleted](red)[$renamed](blue)[$ahead](green)[$behind](red) "
+
+[package]
+disabled = true
+
+[golang]
+format = '[🐹 $version]($style) '
+
+[rust]
+format = '[🦀 $version]($style) '
+
+[python]
+format = '[🐍 $version]($style) '
+
+[ruby]
+format = '[💎 $version]($style) '
+
+[lua]
+format = '[🌙 $version]($style) '
+
+[cmd_duration]
+style = "red"
+min_time = 1000
+format = "\nRun in [$duration]($style)"
+# show_milliseconds = true
+
+[character]
+success_symbol = "λ"
+error_symbol = "λ"
