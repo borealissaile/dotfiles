@@ -10,13 +10,14 @@ alias pacman-clean="sudo pacman -Rns $(pacman -Qtdq)"
 alias paru-clean="pacman -Qtdq | sudo pacman -Rns -"
 alias clock="tty-clock -c -C 1 -b -s"
 alias battery="acpi"
+alias cf="crabfetch"
 alias ff="fastfetch"
 alias c="clear"
 
 
 #  █▀▀  █░█  █▀▀  ▀█▀  █▀█  █▄ ▄█
 # █▄▄  █▄█  ▄▄█  ░█░  █▄█  █░▀░█
-alias cw="~/dotfiles/.config/scripts/chWPP.zsh"
+alias cw="~/dotfiles/.config/scripts/change_wpp.sh"
 
 
 #  ▄▀█  █░░  ▀█▀
@@ -66,6 +67,7 @@ alias gpls="git stash && git pull && git stash apply"
 # Stash/Reset/Restore
 alias gst="git stash"
 alias gsta="gst apply"
+alias gr="git reset"
 alias grh="git reset --hard HEAD~1"
 alias grs="git restore"
 alias grss="git restore --staged"
