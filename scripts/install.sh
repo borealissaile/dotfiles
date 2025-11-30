@@ -16,7 +16,7 @@ if [ "$pkg_mng" != "paru" ] && [ "$pkg_mng" != "yay" ]; then
 	exit 1
 fi
 
-pacman_i hyprland ly zsh git rofi bluez bluez-utils xdg-user-dirs
+pacman_i hyprland ly zsh stow git rofi bluez bluez-utils xdg-user-dirs
 xdg-user-dirs-update
 chsh -s /bin/zsh
 
@@ -57,12 +57,12 @@ $pkg_mng -S inter-font noto-fonts-cjk noto-fonts-emoji noto-fonts ttf-cascadia-c
 printf "Install Rust? (y)es/(n)o: "
 read rust_res
 case "${rust_res,,}" in
-	y|yes)
+	y|yes|s|sim)
 		pacman_i rustup
 		rustup default stable
 		rustup component add rust-analyzer
 		;;
-	n|no)
+	n|no|nao)
 		;;
 	*)
 		echo "Skipping."
