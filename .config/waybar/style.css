@@ -80,7 +80,7 @@ window#waybar {
   color: @accent;
 }
 
-#workpanels button.urgent {
+#workspaces button.urgent {
   color: @red;
 }
 

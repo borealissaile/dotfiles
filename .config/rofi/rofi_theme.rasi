@@ -106,7 +106,6 @@ mode-switcher{
 
 button {
     width:                       45px;
-    padding:                     12px;
     border-radius:               100%;
     background-color:            @background-alt;
     text-color:                  inherit;

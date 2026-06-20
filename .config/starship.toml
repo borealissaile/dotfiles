@@ -1,11 +1,11 @@
 add_newline = false
 
 [username]
-format = "[$user](red) on "
+format = "[$user](green) on "
 show_always = true
 
 [directory]
-style = "red"
+style = "green"
 format = "[$path]($style)"
 truncate_to_repo = false
 

@@ -1,10 +1,12 @@
 #!/bin/sh
 
 if [ -z "$1" ]; then
-    echo "Use: $0 <file>"
-    exit 1
+    selected=$(zenity --file-selection --title="Escolher Wallpaper" --file-filter="*.png *.jpg *.jpeg *.webp *.bmp *.gif")
+    [ -z "$selected" ] && exit 1
+else
+    selected="$1"
 fi
 
-cp "$1" ~/.config/background
+cp "$selected" ~/.config/background
 
-swww img --transition-fps=180 --transition-type=grow --transition-pos=center --transition-duration=1 ~/.config/background
+awww img --transition-fps=180 --transition-type=grow --transition-pos=center --transition-duration=1 ~/.config/background

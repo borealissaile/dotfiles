@@ -12,10 +12,6 @@
 [init]
 	defaultBranch = main
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-	insteadOf = gh:
-
 [commit]
 	gpgsign = false
 
@@ -49,7 +45,7 @@
 
 [log]
 	abbrevCommit = false
-	graphColors = red,yellow,cyan,magenta,green,red
+	graphColors = red,yellow,cyan,magenta,green,blue
 
 [branch]
 	sort = -committerdate
