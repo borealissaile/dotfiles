@@ -1,6 +1,6 @@
 #!/bin/sh
 
-email="eliasfreitasbraga@gmail.com"
+email="${EMAIL:-seu@email.com}"
 keyname="id_ed25519"
 
 ssh-keygen -t ed25519 -C "$email" -f ~/.ssh/$keyname -N ""

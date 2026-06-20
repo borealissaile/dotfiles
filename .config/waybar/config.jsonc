@@ -13,24 +13,28 @@
     "memory",
     "clock",
     "tray",
-    "custom/power"
+    "custom/power",
   ],
 
   "hyprland/window": {
-    "separate-outputs": false
+    "separate-outputs": false,
   },
 
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
       "1": "󰣇",
-      "2": "󰙯",
-      "3": "󰮯",
-      "4": "",
-      "5": "󰊤",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
       "urgent": "",
       "active": "",
-      "default": ""
+      "default": "",
     },
 
     "on-click": "activate",
@@ -42,27 +46,31 @@
       "2": [],
       "3": [],
       "4": [],
-      "5": []
-    }
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+    },
   },
 
   "custom/wallpaper": {
     "format": " ",
-    "on-click": "/home/borealissaile/.config/hypr/scripts/wallpaper.sh"
+    "on-click": "~/.config/scripts/change_wpp.sh",
   },
 
   "cpu": {
-    "format": "{usage}% "
+    "format": "{usage}% ",
   },
 
   "memory": {
-    "format": "{}% "
+    "format": "{}% ",
   },
 
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-    "format-alt": "{:%a %d-%m-%Y}"
+    "format-alt": "{:%a %d-%m-%Y}",
   },
 
   "pulseaudio": {
@@ -79,17 +87,17 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": ["", "", ""],
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
 
   "tray": {
-    "spacing": 10
+    "spacing": 10,
   },
 
   "custom/power": {
     "format": "⏻",
-    "on-click": "nwg-bar"
-  }
+    "on-click": "wlogout",
+  },
 }
