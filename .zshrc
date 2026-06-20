@@ -10,20 +10,31 @@ fi
 
 # Zinit (plugin manager)
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-[ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname $ZINIT_HOME)" && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-source "${ZINIT_HOME}/zinit.zsh"
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname "$ZINIT_HOME")"
+    command git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" 2>/dev/null
+fi
 
-# starship, zoxide, fzf
-eval "$(starship init zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
+if [ -f "${ZINIT_HOME}/zinit.zsh" ]; then
+    source "${ZINIT_HOME}/zinit.zsh"
 
-# Zsh Plugins
-zinit light Aloxaf/fzf-tab
-zinit load zsh-users/zsh-syntax-highlighting
-zinit load zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-completions
-zinit light jeffreytse/zsh-vi-mode
+    # starship, zoxide, fzf
+    eval "$(starship init zsh)"
+    eval "$(zoxide init --cmd cd zsh)"
+    eval "$(fzf --zsh)"
+
+    # Zsh Plugins
+    zinit light Aloxaf/fzf-tab
+    zinit load zsh-users/zsh-autosuggestions
+    zinit light zsh-users/zsh-completions
+    zinit light jeffreytse/zsh-vi-mode
+    zinit load zsh-users/zsh-syntax-highlighting
+else
+    # starship, zoxide, fzf (without zinit)
+    eval "$(starship init zsh)"
+    eval "$(zoxide init --cmd cd zsh)"
+    eval "$(fzf --zsh)"
+fi
 
 # Completion Styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-Z}'
@@ -43,6 +54,10 @@ export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 

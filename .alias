@@ -4,10 +4,10 @@
 
 #  █░░  ▄▀█  ▀▀█  █░█
 # █▄▄  █▀█  █▄▄   █
-alias clear-history="rm -f ~/.config/zsh/zsh_history && kill -9 $$"
+alias clear-history="rm -f ~/.history && kill -9 $$"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias pacman-clean="sudo pacman -Rns $(pacman -Qtdq)"
-alias paru-clean="pacman -Qtdq | sudo pacman -Rns -"
+alias paru-clean="paru -Qtdq | sudo pacman -Rns -"
 alias clock="tty-clock -c -C 1 -b -s"
 alias battery="acpi"
 alias cf="crabfetch"
