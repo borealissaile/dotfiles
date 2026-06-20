@@ -28,10 +28,15 @@ if ! command -v "$pkg_mng" >/dev/null 2>&1; then
     exit 1
 fi
 
+<<<<<<< HEAD
 echo
 echo "Atualizando diretórios do usuário..."
+=======
+pacman_i hyprland ly zsh stow git rofi xdg-user-dirs
+>>>>>>> 63e7e17 (chore(install): sincroniza pacotes com as configs atuais)
 xdg-user-dirs-update
 
+<<<<<<< HEAD
 echo
 echo "Instalando pacotes base..."
 
@@ -70,8 +75,16 @@ echo "  6) nemo"
 echo
 
 read -rp "Digite um ou mais nomes separados por espaço: " file_mng
+=======
+pacman_i xdg-desktop-portal-hyprland xdg-desktop-portal
+pacman_i pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber
+>>>>>>> 63e7e17 (chore(install): sincroniza pacotes com as configs atuais)
+
+# Image / Screenshot / Power
+pacman_i swww grim slurp wl-clipboard jq zenity pavucontrol
 
 valid_file_mng="nautilus nemo thunar dolphin yazi ranger"
+<<<<<<< HEAD
 
 for choice in $file_mng; do
     echo "$valid_file_mng" | grep -qw "$choice" || {
@@ -84,6 +97,22 @@ pacman_i $file_mng
 
 echo
 echo "Instalando ferramentas CLI..."
+=======
+printf "Choose your file managers (space-separated)\n"
+printf "Possible options ($valid_file_mng):\n"
+read file_mng
+if [ -z "$file_mng" ]; then
+	echo "No file manager selected. Skipping."
+else
+	for choice in $file_mng; do
+		echo "$valid_file_mng" | grep -qw "$choice" || { echo "Invalid option: $choice"; exit 1; }
+	done
+	pacman_i $file_mng
+fi
+
+# Shell tools
+$pkg_mng -S fzf starship --noconfirm
+>>>>>>> 63e7e17 (chore(install): sincroniza pacotes com as configs atuais)
 
 "$pkg_mng" -S --noconfirm \
     starship \
@@ -93,6 +122,7 @@ echo "Instalando ferramentas CLI..."
     diff-so-fancy \
     btop
 
+<<<<<<< HEAD
 echo
 echo "Instalando ferramentas de desenvolvimento..."
 
@@ -133,6 +163,69 @@ esac
 
 echo
 read -rp "Instalar Rust? (s/n): " rust_res
+=======
+# TUI programs
+$pkg_mng -S btop fastfetch --noconfirm
+
+# GUI multimedia (AUR)
+$pkg_mng -S wlogout --noconfirm
+
+# System utilities
+$pkg_mng -S brightnessctl playerctl --noconfirm
+
+# Input method
+$pkg_mng -S fcitx5 --noconfirm
+
+# QT theming
+$pkg_mng -S qt6ct --noconfirm
+
+# Authentication agent
+$pkg_mng -S polkit-kde-authentication-agent-1 --noconfirm
+
+# Wallpaper daemon
+$pkg_mng -S awww --noconfirm
+
+# Terminal
+$pkg_mng -S ghostty --noconfirm
+
+# Apps
+$pkg_mng -S brave-bin telegram-desktop discord spotify-launcher --noconfirm
+
+# Programming specific
+$pkg_mng -S asdf-vm neovim --noconfirm
+
+# CLI tools
+$pkg_mng -S tty-clock acpi --noconfirm
+
+# Fonts and themes
+$pkg_mng -S inter-font noto-fonts-cjk noto-fonts-emoji noto-fonts ttf-cascadia-code-nerd ttf-firacode-nerd ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols --noconfirm
+
+# NVM
+$pkg_mng -S nvm --noconfirm
+
+# Install Rust
+printf "Install Rust? (y)es/(n)o: "
+read rust_res
+_rust_res=$(printf '%s' "$rust_res" | tr '[:upper:]' '[:lower:]')
+case "$_rust_res" in
+	y|yes|s|sim)
+		pacman_i rustup
+		rustup default stable
+		rustup component add rust-analyzer
+		;;
+	n|no|nao)
+		;;
+	*)
+		echo "Skipping."
+		;;
+esac
+
+# Enable services
+services="ly"
+for s in $services; do
+	systemctl enable "$s"
+done
+>>>>>>> 63e7e17 (chore(install): sincroniza pacotes com as configs atuais)
 
 case "${rust_res,,}" in
     s|sim|y|yes)
